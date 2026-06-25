@@ -1,0 +1,208 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(255, 230, 0, 0.18), transparent 28rem),
+    #070714;
+  color: #ffffff;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+button {
+  font: inherit;
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+}
+
+.game-card {
+  width: min-content;
+  max-width: 100%;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1.5rem;
+  background: rgba(10, 10, 28, 0.92);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+.game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.25rem;
+  color: #ffe600;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  line-height: 1;
+}
+
+.restart-button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+  background: #ffe600;
+  color: #080811;
+  cursor: pointer;
+  font-weight: 800;
+  box-shadow: 0 8px 22px rgba(255, 230, 0, 0.22);
+}
+
+.restart-button:hover {
+  filter: brightness(1.05);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.stats div {
+  padding: 0.75rem;
+  border-radius: 0.9rem;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.stats span {
+  display: block;
+  margin-bottom: 0.15rem;
+  color: #b8b8cf;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.stats strong {
+  font-size: 1.15rem;
+}
+
+.maze {
+  display: grid;
+  grid-template-columns: repeat(15, 32px);
+  grid-template-rows: repeat(11, 32px);
+  gap: 2px;
+  padding: 10px;
+  border: 4px solid #1f51ff;
+  border-radius: 1rem;
+  background: #000000;
+  overflow: auto;
+}
+
+.cell {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+}
+
+.wall {
+  background: linear-gradient(135deg, #1742e8, #2e6bff);
+  border-radius: 0.3rem;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+.path {
+  background: #020207;
+}
+
+.pellet {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+}
+
+.pacman {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: conic-gradient(transparent 0 55deg, #ffe600 55deg 305deg, transparent 305deg 360deg);
+  filter: drop-shadow(0 0 8px rgba(255, 230, 0, 0.5));
+}
+
+.ghost {
+  font-size: 1.4rem;
+  filter: drop-shadow(0 0 8px rgba(255, 80, 160, 0.6));
+}
+
+.message {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 0.9rem;
+  text-align: center;
+  font-weight: 800;
+}
+
+.message.won {
+  background: rgba(0, 255, 136, 0.16);
+  color: #4dffad;
+}
+
+.message.lost {
+  background: rgba(255, 77, 77, 0.16);
+  color: #ff7b7b;
+}
+
+.instructions {
+  margin: 1rem 0 0;
+  color: #c7c7d9;
+  text-align: center;
+}
+
+@media (max-width: 620px) {
+  .page {
+    padding: 1rem;
+  }
+
+  .game-card {
+    padding: 1rem;
+  }
+
+  .game-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .maze {
+    grid-template-columns: repeat(15, 24px);
+    grid-template-rows: repeat(11, 24px);
+  }
+
+  .cell {
+    width: 24px;
+    height: 24px;
+  }
+
+  .pacman {
+    width: 20px;
+    height: 20px;
+  }
+}
