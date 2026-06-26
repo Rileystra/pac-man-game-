@@ -22,7 +22,14 @@ jobs:
         run: npm install 
         
       - name: Trivy file scan 
-        run: trivy fs . > trivyfs.txt
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'table'
+          output: 'trivyfs.txt'
+          exit-code: '0'
+          run: trivy fs . > trivyfs.txt
              
       - name: Docker Build and push 
         run: |
