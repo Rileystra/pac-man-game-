@@ -18,7 +18,12 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-          
+      - name: npm install  denpendency
+        run: npm install 
+        
+      - name: Trivy file scan 
+        run: trivy fs . > trivyfs.txt
+             
       - name: Docker Build and push 
         run: |
           docker build -t pac-man-game .
@@ -27,6 +32,4 @@ jobs:
           docker push riley280/pac-man-game:latest
           env:
           DOCKER_CLI_ACI:1
-      -NAE
-        
-      
+    
