@@ -29,12 +29,13 @@ jobs:
 
           
       - name: Docker build and push   
-    run: |
-      docker build -t pac-man-game .
-      docker tag pac-man-game riley280/pac-man-game:latest
-      docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-      docker push riley280/pac-man-game:latest
-env:
-DOCKER_CLI_ACI: 1
+        env:
+          DOCKER_CLI_ACI: 1
+        run: |
+          docker build -t pac-man-game .
+          docker tag pac-man-game riley280/pac-man-game:latest
+          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+          docker push riley280/pac-man-game:latest
+      
       
 
