@@ -25,7 +25,10 @@ jobs:
       - name: Trivy file scan
         run: |
           trivy fs . > trivyfs.txt
+
+
           
+      - name: Docker build and push   
     run: |
       docker build -t pac-man-game .
       docker tag pac-man-game riley280/pac-man-game:latest
